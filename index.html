@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreRack Systems | Enterprise IT Infrastructure & Lifecycle Solutions</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Utility Bar -->
+  <div class="bg-[#060B19] text-slate-300 text-xs border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+        <a href="tel:+447508016042" class="flex items-center gap-1.5 hover:text-white transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>+44 7508 016042</span>
+        </a>
+        <a href="mailto:sales@coreracksystems.co.uk" class="hidden sm:flex items-center gap-1.5 hover:text-white transition">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>sales@coreracksystems.co.uk</span>
+        </a>
+        <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Mon – Fri: 9am – 6pm</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="openModal('registerModal')" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition">
+          <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+          <span>B2B Customer Registration</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Navbar -->
+  <header class="sticky top-0 z-40 bg-[#0B132B]/95 backdrop-blur-md border-b border-slate-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-600/20 group-hover:scale-105 transition">
+            <i data-lucide="server" class="w-5 h-5 text-white"></i>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-xl tracking-tight block leading-none">
+              CORERACK<span class="text-blue-400">.</span>
+            </span>
+            <span class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-mono">Infrastructure UK</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#solutions" class="hover:text-white transition">Solutions</a>
+          <a href="#services" class="hover:text-white transition">Lifecycle &amp; Trade-Up</a>
+          <a href="#brands" class="hover:text-white transition">Brands Directory</a>
+          <a href="#sectors" class="hover:text-white transition">Sectors</a>
+          <a href="#about" class="hover:text-white transition">About Us</a>
+        </nav>
+
+        <!-- Action Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button onclick="openQuoteModal('General Hardware Inquiry')" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-lg shadow-blue-600/25 transition flex items-center gap-2">
+            <span>Get A Free Quote</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-800">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#0B132B] border-t border-slate-800 px-4 pt-3 pb-6 space-y-3">
+      <a href="#solutions" class="block py-2 text-slate-300 hover:text-white font-medium">Solutions</a>
+      <a href="#services" class="block py-2 text-slate-300 hover:text-white font-medium">Lifecycle &amp; Trade-Up</a>
+      <a href="#brands" class="block py-2 text-slate-300 hover:text-white font-medium">Brands Directory</a>
+      <a href="#sectors" class="block py-2 text-slate-300 hover:text-white font-medium">Sectors</a>
+      <a href="#about" class="block py-2 text-slate-300 hover:text-white font-medium">About Us</a>
+      <div class="pt-3 border-t border-slate-800 flex flex-col gap-2">
+        <button onclick="openQuoteModal('General Hardware Inquiry')" class="w-full bg-blue-600 text-white font-semibold py-2.5 rounded-lg">
+          Get A Free Quote
+        </button>
+        <button onclick="openModal('registerModal')" class="w-full bg-slate-800 text-slate-200 font-medium py-2.5 rounded-lg">
+          B2B Customer Registration
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-[#0B132B] text-white hero-grid overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-transparent to-[#0B132B]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+            <span>UK ENTERPRISE IT HARDWARE &amp; LIFECYCLE PARTNER</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+            Reliable IT Infrastructure You Can <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Trust &amp; Scale.</span>
+          </h1>
+          <p class="text-slate-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            Empowering IT leaders with complete control over data center procurement, 24/7 post-warranty support, cybersecurity, and surplus hardware trade-ups.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button onclick="openQuoteModal('Enterprise Infrastructure Quote')" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl shadow-xl shadow-blue-600/30 transition flex items-center gap-2">
+              <span>Request Free Quote</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </button>
+            <a href="#brands" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold px-7 py-3.5 rounded-xl transition flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i>
+              <span>Browse 60+ OEM Brands</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-800/80 max-w-lg">
+            <div>
+              <div class="font-display text-2xl font-bold text-white">24/7</div>
+              <div class="text-xs text-slate-400">Global SLA Support</div>
+            </div>
+            <div>
+              <div class="font-display text-2xl font-bold text-blue-400">50%</div>
+              <div class="text-xs text-slate-400">Upfront Trade-Up Pay</div>
+            </div>
+            <div>
+              <div class="font-display text-2xl font-bold text-white">100+</div>
+              <div class="text-xs text-slate-400">Hardware Vendors</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Quick Quote Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-[#1C2541]/90 backdrop-blur-md border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">Fast Hardware &amp; SLA Quote</h2>
+                <p class="text-xs text-slate-400 mt-0.5">Direct response from our Newcastle engineering desk</p>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono">ONLINE</span>
+            </div>
+            <form id="heroQuoteForm" class="space-y-4">
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Full Name *</label>
+                <input type="text" required placeholder="e.g. James Thornton" class="w-full bg-[#0B132B] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+              </div>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-medium text-slate-300 mb-1">Work Email *</label>
+                  <input type="email" required placeholder="name@company.co.uk" class="w-full bg-[#0B132B] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-slate-300 mb-1">Phone Number</label>
+                  <input type="tel" placeholder="+44 7700 900077" class="w-full bg-[#0B132B] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Service Category</label>
+                <select class="w-full bg-[#0B132B] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500">
+                  <option>Hardware Procurement (Servers / Network / Storage)</option>
+                  <option>Post-Warranty Support &amp; Maintenance</option>
+                  <option>Trade-Up / Surplus Hardware Buyback</option>
+                  <option>Data Center &amp; IT Consultancy</option>
+                  <option>Cyber Security &amp; Surveillance</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Part Numbers or Requirements *</label>
+                <textarea rows="3" required placeholder="List OEM part numbers, quantities, or project scope..." class="w-full bg-[#0B132B] border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition shadow-lg shadow-blue-600/20">
+                Submit Quote Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted OEM Logo Bar -->
+  <section class="bg-white border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-xs font-mono uppercase tracking-widest text-slate-400 mb-6">
+        Supplying &amp; Supporting Leading Global Enterprise Technologies
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center text-center font-display font-bold text-slate-400 text-sm tracking-wide">
+        <span class="hover:text-slate-800 transition">DELL TECH</span>
+        <span class="hover:text-slate-800 transition">HPE</span>
+        <span class="hover:text-slate-800 transition">CISCO</span>
+        <span class="hover:text-slate-800 transition">LENOVO</span>
+        <span class="hover:text-slate-800 transition">FORTINET</span>
+        <span class="hover:text-slate-800 transition">NETAPP</span>
+        <span class="hover:text-slate-800 transition">UBIQUITI</span>
+        <span class="hover:text-slate-800 transition">SUPERMICRO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 Core Solutions Grid -->
+  <section id="solutions" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <span class="text-blue-600 font-mono text-xs uppercase tracking-wider font-semibold">End-to-End Architecture</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+          Enterprise Infrastructure &amp; Technology Solutions
+        </h2>
+        <p class="text-slate-600 mt-3 text-lg">
+          Click any solution area to view deployment deliverables and request tailored hardware specifications.
+        </p>
+      </div>
+
+      <div id="solutionsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Lifecycle Services & Trade-Up Program -->
+  <section id="services" class="py-20 bg-[#0B132B] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+        <div class="max-w-2xl">
+          <span class="text-blue-400 font-mono text-xs uppercase tracking-wider font-semibold">Lifecycle Management</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-2">
+            Extend Hardware ROI &amp; Recover Surplus Capital
+          </h2>
+          <p class="text-slate-300 mt-3 text-lg">
+            From post-warranty engineering to instant buybacks for decommissioned stock, we manage every stage of your IT asset lifecycle.
+          </p>
+        </div>
+        <button onclick="openQuoteModal('Post-Warranty / Lifecycle Consultation')" class="self-start lg:self-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition">
+          Schedule Lifecycle Review
+        </button>
+      </div>
+
+      <!-- 6 Service Pillars -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div class="bg-[#1C2541] border border-slate-700/70 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center mb-4">
+            <i data-lucide="compass" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Professional IT Consultancy</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Strategic infrastructure planning, capacity sizing, and multi-vendor architecture design tailored to your budget.</p>
+        </div>
+
+        <div class="bg-[#1C2541] border border-slate-700/70 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-4">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Post-Warranty Deployment</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">24/7 global response, spare parts stocking, and third-party maintenance for hardware past OEM warranty expiration.</p>
+        </div>
+
+        <div class="bg-[#1C2541] border border-slate-700/70 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-4">
+            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Trade-Up &amp; Surplus Buyback</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Convert excess switches, servers, routers, and office IT stock into working capital with free collection.</p>
+        </div>
+
+        <div class="bg-[#1C2541] border border-slate-700/70 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center mb-4">
+            <i data-lucide="activity" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Network Monitoring</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Proactive 24/7 telemetry, fault alerting, and performance diagnostics across distributed branches and data centers.</p>
+        </div>
+
+        <div class="bg-[#1C2541] border border-slate-700/70 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center mb-4">
+            <i data-lucide="wrench" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Onsite Engineering Services</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Certified field engineers dispatched for rack-and-stack installation, hardware swaps, and structured cabling.</p>
+        </div>
+
+        <div class="bg-[#1C2541] border border-slate-700/70 rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mb-4">
+            <i data-lucide="headset" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Offsite Remote Services</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Pre-staging, firmware configuration, burn-in testing, and remote Tier-3 troubleshooting prior to site delivery.</p>
+        </div>
+      </div>
+
+      <!-- 3-Step Trade-Up Process Banner -->
+      <div class="bg-gradient-to-r from-blue-950 to-[#1C2541] border border-blue-500/30 rounded-2xl p-8 sm:p-10">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-mono mb-2">SURPLUS LIQUIDATION PROGRAM</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold">How Our 3-Step IT Trade-Up Works</h3>
+          </div>
+          <button onclick="openQuoteModal('Surplus Inventory Trade-Up Valuation')" class="bg-white text-[#0B132B] hover:bg-blue-50 font-bold px-6 py-3 rounded-xl transition shrink-0">
+            Submit Inventory List
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-[#0B132B]/70 border border-slate-700/80 rounded-xl p-6">
+            <div class="font-mono text-blue-400 text-sm font-bold mb-2">STEP 01</div>
+            <h4 class="font-display font-bold text-lg mb-1">Submit Surplus Stock</h4>
+            <p class="text-slate-300 text-sm">Send us your list of overstock, retired, or decommissioned switches, servers, laptops, or security hardware.</p>
+          </div>
+          <div class="bg-[#0B132B]/70 border border-slate-700/80 rounded-xl p-6">
+            <div class="font-mono text-blue-400 text-sm font-bold mb-2">STEP 02</div>
+            <h4 class="font-display font-bold text-lg mb-1">Accept Purchase Offer</h4>
+            <p class="text-slate-300 text-sm">Our valuation desk reviews market demand and sends a transparent buyback offer within 24 business hours.</p>
+          </div>
+          <div class="bg-[#0B132B]/70 border border-slate-700/80 rounded-xl p-6">
+            <div class="font-mono text-emerald-400 text-sm font-bold mb-2">STEP 03</div>
+            <h4 class="font-display font-bold text-lg mb-1">50% Upfront &amp; Free Pickup</h4>
+            <p class="text-slate-300 text-sm">Receive 50% upfront payment, free insured collection &amp; shipping, and the remaining balance upon goods receipt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Brands Directory -->
+  <section id="brands" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-blue-600 font-mono text-xs uppercase tracking-wider font-semibold">Multi-Vendor Sourcing</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+            Hardware &amp; Software Brands Directory
+          </h2>
+          <p class="text-slate-600 mt-2">Search or filter by category/letter, then click any brand to request immediate stock pricing.</p>
+        </div>
+        <div class="w-full md:w-80 relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+          <input id="brandSearch" type="text" placeholder="Search brand (e.g. Cisco, Dell, Fortinet)..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-blue-600" />
+        </div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div id="categoryFilters" class="flex flex-wrap gap-2 mb-4"></div>
+
+      <!-- Alphabet Jump Bar -->
+      <div id="letterFilters" class="flex flex-wrap gap-1.5 pb-6 mb-8 border-b border-slate-200"></div>
+
+      <!-- Brands Output Grid -->
+      <div id="brandsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5"></div>
+      <div id="noBrandsMsg" class="hidden text-center py-12 text-slate-500">
+        No matching brands found. <button onclick="openQuoteModal('Custom Brand Sourcing Request')" class="text-blue-600 font-semibold underline">Request custom sourcing anyway &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors Served & Core Values -->
+  <section id="sectors" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-blue-600 font-mono text-xs uppercase tracking-wider font-semibold">Industry Expertise</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Sectors We Serve</h2>
+        <p class="text-slate-600 mt-3">Tailored procurement, compliance-ready security, and SLA response times across six core verticals.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600"><i data-lucide="building" class="w-5 h-5"></i></div>
+            <h3 class="font-display font-bold text-lg">Enterprise</h3>
+          </div>
+          <p class="text-slate-600 text-sm">High-availability data center clusters, hybrid cloud integration, and multi-site hardware standardization.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600"><i data-lucide="landmark" class="w-5 h-5"></i></div>
+            <h3 class="font-display font-bold text-lg">Financial</h3>
+          </div>
+          <p class="text-slate-600 text-sm">Low-latency networking, hardened perimeter firewalls, and zero-downtime post-warranty maintenance.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600"><i data-lucide="heart-pulse" class="w-5 h-5"></i></div>
+            <h3 class="font-display font-bold text-lg">Healthcare</h3>
+          </div>
+          <p class="text-slate-600 text-sm">Resilient medical imaging storage, secure clinical workstations, and 24/7 critical infrastructure support.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
+            <h3 class="font-display font-bold text-lg">Education</h3>
+          </div>
+          <p class="text-slate-600 text-sm">Campus-wide Wi-Fi infrastructure, budget-friendly refurbished/trade-up hardware, and lab computing.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600"><i data-lucide="home" class="w-5 h-5"></i></div>
+            <h3 class="font-display font-bold text-lg">Real Estate</h3>
+          </div>
+          <p class="text-slate-600 text-sm">Commercial building IP video surveillance, access control networking, and smart-property connectivity.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600"><i data-lucide="concierge-bell" class="w-5 h-5"></i></div>
+            <h3 class="font-display font-bold text-lg">Hospitality</h3>
+          </div>
+          <p class="text-slate-600 text-sm">High-density guest networking, POS retail terminals, and rapid onsite replacement across hotel groups.</p>
+        </div>
+      </div>
+
+      <!-- About & 5 Core Values -->
+      <div id="about" class="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-5 space-y-4">
+            <span class="text-blue-600 font-mono text-xs uppercase tracking-wider font-semibold">About CoreRack Systems</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Our Mission &amp; Core Operating Values
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Headquartered in Newcastle Upon Tyne, our mission is to be the preferred global IT infrastructure lifecycle provider—operating with rapid parts availability, responsive engineers, and transparent pricing.
+            </p>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-5 gap-3">
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-center">
+              <i data-lucide="heart-handshake" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+              <div class="font-display font-bold text-sm text-slate-900">Care</div>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-center">
+              <i data-lucide="users" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+              <div class="font-display font-bold text-sm text-slate-900">Cooperation</div>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-center">
+              <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+              <div class="font-display font-bold text-sm text-slate-900">Reliability</div>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-center">
+              <i data-lucide="zap" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+              <div class="font-display font-bold text-sm text-slate-900">Agility</div>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 text-center col-span-2 sm:col-span-1">
+              <i data-lucide="file-check-2" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+              <div class="font-display font-bold text-sm text-slate-900">Compliance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer (Exact Address & Contact Number) -->
+  <footer class="bg-[#060B19] text-slate-300 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- Brand Column -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center">
+              <i data-lucide="server" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="font-display font-extrabold text-xl text-white">CORERACK<span class="text-blue-400">.</span></span>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Enterprise IT hardware sourcing, data center architecture, 24/7 post-warranty support, and surplus equipment trade-ups.
+          </p>
+          <button onclick="openModal('registerModal')" class="text-xs font-semibold text-blue-400 hover:text-blue-300 underline">
+            Open a B2B Trade Account &rarr;
+          </button>
+        </div>
+
+        <!-- Solutions Links -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Solutions</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="#solutions" class="hover:text-white transition">Data Center &amp; Servers</a></li>
+            <li><a href="#solutions" class="hover:text-white transition">Flash &amp; Hybrid Storage</a></li>
+            <li><a href="#solutions" class="hover:text-white transition">Enterprise Networking</a></li>
+            <li><a href="#solutions" class="hover:text-white transition">Cyber Security</a></li>
+            <li><a href="#solutions" class="hover:text-white transition">Video Surveillance &amp; Retail</a></li>
+          </ul>
+        </div>
+
+        <!-- Lifecycle & Policies -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Lifecycle Services</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="#services" class="hover:text-white transition">Professional IT Consultancy</a></li>
+            <li><a href="#services" class="hover:text-white transition">Post-Warranty Deployment</a></li>
+            <li><a href="#services" class="hover:text-white transition">Surplus Hardware Trade-Up</a></li>
+            <li><a href="#services" class="hover:text-white transition">Onsite &amp; Offsite Engineering</a></li>
+            <li><button onclick="openModal('registerModal')" class="hover:text-white transition">Customer Registration</button></li>
+          </ul>
+        </div>
+
+        <!-- Office & Contact Details -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">UK Head Office</h4>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-blue-400 shrink-0 mt-1"></i>
+              <span>37 Juniper Drive, Newcastle Upon Tyne, England, NE4 9BF</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-4 h-4 text-blue-400 shrink-0"></i>
+              <a href="tel:+447508016042" class="hover:text-white transition">+44 7508016042</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="clock" class="w-4 h-4 text-blue-400 shrink-0"></i>
+              <span>Mon – Fri: 9am – 6pm (Sat – Sun: Closed)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 CoreRack Systems Ltd. All Rights Reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">Terms &amp; Conditions</a>
+          <a href="#" class="hover:text-slate-300">Shipping &amp; Handling</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL 1: Get A Free Quote -->
+  <div id="quoteModal" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeModal('quoteModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <span class="text-blue-600 font-mono text-xs uppercase font-semibold">Direct Sales &amp; Engineering Desk</span>
+      <h3 class="font-display text-2xl font-bold text-slate-900 mt-1">Request a Free Quote</h3>
+      <p class="text-sm text-slate-500 mt-1 mb-5">Complete the details below for rapid pricing, stock availability, or SLA terms.</p>
+
+      <form id="modalQuoteForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Inquiry / Brand Subject</label>
+          <input id="quoteSubjectInput" type="text" class="w-full bg-blue-50/70 border border-blue-200 rounded-lg px-3.5 py-2 text-sm font-medium text-blue-900" />
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name *</label>
+            <input type="text" required placeholder="Your Name" class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Company Name *</label>
+            <input type="text" required placeholder="Company Ltd" class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Work Email *</label>
+            <input type="email" required placeholder="you@company.co.uk" class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number *</label>
+            <input type="tel" required placeholder="+44 ..." class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Hardware Part Numbers / Project Scope *</label>
+          <textarea rows="3" required placeholder="Enter model numbers, quantities, or post-warranty / trade-up details..." class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">
+          Send Quote Request
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: B2B Customer Registration -->
+  <div id="registerModal" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('registerModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <span class="text-blue-600 font-mono text-xs uppercase font-semibold">B2B Trade Onboarding</span>
+      <h3 class="font-display text-2xl font-bold text-slate-900 mt-1">Customer Account Registration</h3>
+      <p class="text-sm text-slate-500 mt-1 mb-5">Register your organization for credit terms, procurement invoicing, and priority dispatch.</p>
+
+      <form id="b2bRegisterForm" class="space-y-4">
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Registered Company Name *</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Company Reg / VAT Number *</label>
+            <input type="text" required placeholder="e.g. GB123456789" class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Procurement Contact Name *</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Procurement Email *</label>
+            <input type="email" required class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Finance / AP Contact Name *</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Accounts Payable Email *</label>
+            <input type="email" required class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Billing &amp; Delivery Address *</label>
+          <textarea rows="2" required class="w-full border border-slate-300 rounded-lg px-3.5 py-2 text-sm"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-[#0B132B] hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">
+          Submit B2B Registration
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Solution Detail Drawer -->
+  <div id="solutionModal" class="hidden fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeModal('solutionModal')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="solutionModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="hidden fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 text-sm font-medium">
+    <i data-lucide="check-circle" class="w-5 h-5 shrink-0"></i>
+    <span id="toastMessage">Request submitted successfully!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
